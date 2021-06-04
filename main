@@ -1,0 +1,169 @@
+#include <stdio.h>
+#include <string.h>
+
+void     *ft_memcpy(void *dst, const void *src, size_t n);
+
+int main()
+{
+	const char src[50] = "try to copy";
+	char dst[50] = "hello";
+	ß
+	printf("before: %s, \n", dst);
+	ft_memcpy(dst, src, 50);
+	printf("after: %s, %s \n", dst, src);
+	return(0);
+}
+
+
+#include <stdio.h>
+#include <string.h>
+
+void    *ft_memccpy(void *dst, const void *src, int c, size_t n);
+
+int main()
+{
+	const char src[50] = "I'm try to see how it work";
+	char dst[50];
+	int n = 10;
+	int c = 7;
+	printf("%s \n", (char *)ft_memccpy(dst, src, c, n));
+	return(0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+void    *ft_memmove(void *dst, const void *src, size_t len);
+
+int main()
+{
+	char dst[] = "oldsrting";
+	const char src [] = "newstring";
+	printf("before = %s, src = %s, \n", dst, src);
+	ft_memmove(dst, src, 9);
+	printf("after = %s, dst = %s, \n",  dst, src);
+	return(0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+void    *ft_memchr(const void *s, int c, size_t n);
+
+int main()
+{
+	const char str[] = "Trying to.. figure it out";
+	const char ch = '.';
+	char *ret;
+
+	ret = ft_memchr(str, ch, strlen(str));
+	printf("string after: |%c| is - |%s|\n", ch, ret);
+	return(0);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize);
+
+void test(int size)
+{
+	char str[] = "count len";
+    char buffer[50];
+    int ret;
+
+    ret = ft_strlcpy(buffer, str, size);
+    printf("lenght: %d \n", ret);
+}
+
+int main()
+{
+    test(10);
+    test(2);
+    test(1);
+
+    return  (0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+size_t  ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+int main()
+{
+    char first[] = "This is";
+    char last[] = "a long headache";
+    int r;
+    int size = 20;
+    char buffer[size];
+
+    r = ft_strlcat(buffer,last,size);
+
+    //puts(buffer);
+    printf("Value returned: %s %s\n", first, last);
+    if( r > size )
+        printf("String truncated");
+    else
+        printf("String was fully copied");
+
+    return(0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c);
+
+int main () {
+   const char str[] = "This is just a String"; 
+   const char ch = 'q'; 
+   char *p;
+   p = ft_strchr(str, ch);
+   printf("String starting from %c is : %s\n", ch, p);
+   return 0;
+}
+
+#include <stdio.h>
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c);
+
+int main () {
+   const char str[] = "This is just a String"; 
+   const char ch = 'q'; 
+   char *p;
+   p = ft_strrchr(str, ch);
+   printf("String starting from %c is : %s\n", ch, p);
+   return 0;
+}
+
+#include <stdio.h>
+#include <string.h>
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
+
+int	main()
+{
+	const char	str[] = "This is just a String"; 
+	const char	ch []= "just"; 
+	char	*p;
+	p = ft_strnstr(str, ch, 3);
+	printf("Neendle string in haystack is : %s\n", ch);
+	return (0);
+}
+
+
+
+
+#include <stdio.h>
+#include <ctype.h>
+
+int	ft_toupper(int c);
+
+int main()
+{
+	int c = 't';
+	printf("uppecase: %c \n", ft_toupper(c));
+	return (0);
+}
