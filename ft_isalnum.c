@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 14:01:03 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/04 17:37:14 by afridasufi       ###   ########.fr       */
+/*   Created: 2021/06/05 11:30:11 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/05 11:37:11 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_isalnum(int c)
 {
-	ft_putchar(c);
+	if (c > 47 && c < 58)
+		return (1);
+	if (c > 64 && c < 91)
+		return (1);
+	else if (c > 96 && c < 123)
+		return (1);
+	else
+		return (0);
 }

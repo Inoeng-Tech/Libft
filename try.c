@@ -1,42 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   try.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 16:29:38 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/05 12:36:44 by afridasufi       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+	{
+	size_t	i;
+	char	*d;
+	char	*s;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	d = (char *)dst;
+	s = (char *)src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		if (s[i] == c)
+			return ((void *)&d [i + 1]);
+		++i;
+	}
+	return (dst);
 }
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n) 
-{
-	size_t	i;
-	size_t	len;
-	char	c;
+#include "libft.h"
 
-	c = *s2;
-	if (c == '\0')
-		return ((char *)s1);
-	len = ft_strlen(s2);
-	while (len <= n)
-	{
-		if (*s1 == c)
-		{
-			i = 1;
-			while (i == 1)
-			{
-				if (i == len)
-					return ((char *)s2);
-				if
-					(s1[i] != s2[i])
-					break ;
-				i++;
-			}
-		}
-		n--;
-		s1++;
-	}
-	return (NULL);
+void    *ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+        unsigned char   *ptr1;
+        unsigned char   *ptr2;
+
+        ptr1 = (unsigned char *)src;
+        ptr2 = (unsigned char *)dst;
+        while (n-- > 0)
+        {
+               *ptr2 = *ptr1;
+               if (*ptr1 == (unsigned char)c)
+                        return  (dst);
+                ptr1++;
+                ptr2++;
+        }
+        return  (NULL);
 }

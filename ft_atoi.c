@@ -6,11 +6,11 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:15:56 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/05/30 14:26:16 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/05 10:41:05 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

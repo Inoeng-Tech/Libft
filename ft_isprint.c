@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 14:01:03 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/04 17:37:14 by afridasufi       ###   ########.fr       */
+/*   Created: 2021/06/05 12:00:26 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/05 12:35:14 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_isprint(int c)
 {
-	ft_putchar(c);
+	if (!(c >= 32 && c <= 126))
+		return (0);
+	return (1);
 }

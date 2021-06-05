@@ -1,4 +1,31 @@
 #include <stdio.h>
+
+void	*ft_memset(void *b, int c, size_t len);
+
+int main()
+{
+  char str[50] = "This is string.h library function";
+ft_memset(str, '$', 7);
+  printf("%s", str); 
+return 0;
+} 
+
+#include <stdio.h>
+#include <string.h>
+
+void	ft_bzero(void *s, size_t n);
+
+int	main()
+{
+	char	buffer[80];
+	ft_bzero(buffer, 80);
+	printf("%s", buffer);
+	return (0);
+}
+
+
+
+#include <stdio.h>
 #include <string.h>
 
 void     *ft_memcpy(void *dst, const void *src, size_t n);
@@ -60,6 +87,36 @@ int main()
 	printf("string after: |%c| is - |%s|\n", ch, ret);
 	return(0);
 }
+
+#include <stdio.h>
+#include <string.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+
+int	main()
+{
+	char	s1[15];
+	char	s2[15];
+	int		ret;
+
+	ft_memcmp(s1, "abcdef", 6);
+	ft_memcmp(s2, "ABCDEF", 6);
+	ret = ft_memcmp(s1, s2, 5);
+	if (ret > 0)
+	{
+		printf("s2 is less than s1\n");
+	}
+	else if (ret < 0)
+	{
+		printf("s1 is less than s2\n");
+	}
+	else
+	{
+		printf("s1 is equal ro s2\n");
+	}
+	return (0);
+}
+
 
 #include <string.h>
 #include <stdio.h>
@@ -124,19 +181,7 @@ int main () {
    return 0;
 }
 
-#include <stdio.h>
-#include <string.h>
 
-char	*ft_strchr(const char *s, int c);
-
-int main () {
-   const char str[] = "This is just a String"; 
-   const char ch = 'q'; 
-   char *p;
-   p = ft_strrchr(str, ch);
-   printf("String starting from %c is : %s\n", ch, p);
-   return 0;
-}
 
 #include <stdio.h>
 #include <string.h>
@@ -145,19 +190,147 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 
 int	main()
 {
-	const char	str[] = "This is just a String"; 
-	const char	ch []= "just"; 
-	char	*p;
-	p = ft_strnstr(str, ch, 3);
-	printf("Neendle string in haystack is : %s\n", ch);
+    const char *ls = "This is just a String"; 
+    const char	*ss = "just"; 
+    char *ptr;
+    
+    ptr = ft_strnstr(ls, ss, 100);
+	printf("Neendle string in haystack is : %s %s \n", ss, ptr);
 	return (0);
 }
 
 
+  
+#include <stdio.h>
+#include <string.h>
+
+int ft_strncmp(char *s1, char *s2, unsigned int n);
+
+int main()
+{
+	char s1 [] = "Hally everyone";
+	char s2 [] = "Hallo all";
+	size_t n = 5;
+	printf("%d \n", ft_strncmp(s1, s2, n));
+	return(0);
+}
 
 
 #include <stdio.h>
+#include <stdlib.h>
+
+int	ft_atoi(const char *str);
+
+int main()
+{
+	char str [] = "---+---+1234ab567";
+	printf("ft_atoi: %d \n", ft_atoi(str));
+	printf("atoi : %d \n", atoi(str));
+	return (0);
+}
+
+#include <stdio.h>
 #include <ctype.h>
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int	ft_isalpha(int c);
+
+int main()
+{
+	int var1 = 'd';
+	int var2 = '2';
+	int var3 = '\t';
+	int var4 = ' ';
+
+	if (ft_isalpha(var1))
+		{printf("var1 = |%c| is an alphabet\n", var1);}
+	else
+		{printf("var2 = |%c| is not an alphabet\n", var1);}
+	if (ft_isalpha(var2))
+		{printf("var2 = |%c| is an alphabet\n", var2);}
+	else
+		{printf("var2 = |%c| is not an alphabet\n", var2);}
+	if (ft_isalpha(var3))
+		{printf("var3 = |%c| is an alphabet\n", var3);}
+	else
+		{printf("var3 = |%c| is not an alphabet\n", var3);}
+	if (ft_isalpha(var4))
+		{printf("var4 = |%c| is an alphabet\n", var4);}
+	else
+		{printf("var4 = |%c| is not an alphabet\n", var4);}
+	return (0);
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int	ft_isdigit(int c);
+
+int main()
+{
+	int var1 = 'd';
+	int var2 = '2';
+	int var3 = '\t';
+	int var4 = ' ';
+
+	if (ft_isdigit(var1))
+		{printf("var1 = |%c| is a digit\n", var1);}
+	else
+		{printf("var2 = |%c| is not a digit\n", var1);}
+	if (ft_isdigit(var2))
+		{printf("var2 = |%c| is a digitt\n", var2);}
+	else
+		{printf("var2 = |%c| is not a digit\n", var2);}
+	if (ft_isdigit(var3))
+		{printf("var3 = |%c| is a digit\n", var3);}
+	else
+		{printf("var3 = |%c| is not a digit\n", var3);}
+	if (ft_isdigit(var4))
+		{printf("var4 = |%c| is a digit\n", var4);}
+	else
+		{printf("var4 = |%c| is not a digit\n", var4);}
+	return (0);
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int	ft_isalnum(int c);
+
+int main()
+{
+	int var1 = 'd';
+	int var2 = '2';
+	int var3 = '\t';
+	int var4 = ' ';
+
+	if (ft_isalnum(var1))
+		{printf("var1 = |%c| is an alphabet\n", var1);}
+	else
+		{printf("var2 = |%c| is not an alphabet\n", var1);}
+	if (ft_isalnum(var2))
+		{printf("var2 = |%c| is a digit\n", var2);}
+	else
+		{printf("var2 = |%c| is not a digit\n", var2);}
+	if (ft_isalnum(var3))
+		{printf("var3 = |%c| is an alphabet or a digit\n", var3);}
+	else
+		{printf("var3 = |%c| is not an alphabet or a digit\n", var3);}
+	if (ft_isalnum(var4))
+		{printf("var4 = |%c| is an alphabet or a digit\n", var4);}
+	else
+		{printf("var4 = |%c| is not an alphabet or a digit\n", var4);}
+	return (0);
+}
+
 
 int	ft_toupper(int c);
 
@@ -167,3 +340,4 @@ int main()
 	printf("uppecase: %c \n", ft_toupper(c));
 	return (0);
 }
+

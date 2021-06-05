@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 14:01:03 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/04 17:37:14 by afridasufi       ###   ########.fr       */
+/*   Created: 2021/06/05 09:33:42 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/05 10:13:53 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	ft_putchar(c);
+	size_t	i;
+
+	i = 0;
+	if (dstsize > 0)
+		while (*(src + i) != '\0')
+			i++;
+	else
+	{
+		*(dst + i) = *(src + i);
+		i--;
+	}
+	return (i);
 }
