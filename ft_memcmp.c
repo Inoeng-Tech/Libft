@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 18:54:31 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/05 08:42:49 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/06 22:34:40 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*str1;
-	char	*str2;
-	size_t	i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
-	i = 0;
-	str1 = (char *)s1;
-	str2 = (char *)s2;
 	if (n == 0)
 		return (0);
-	while (*str1 == *str2 && ++i < n)
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
 	{
-		str1++;
-		str2++;
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	return ((void *)(s1 + i) - (s2 + 1));
+	return (0);
 }

@@ -1,32 +1,14 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
-int	ft_isprint(int c);
+char	*ft_itoa(int n);
 
 int main()
 {
-	int var1 = 'd';
-	int var2 = '2';
-	int var3 = '\t';
-	int var4 = ' ';
+	char buf [20];
+	//int n = 15;
 
-	if (ft_isprint(var1))
-		{printf("var1 = |%c| is a printing character\n", var1);}
-	else
-		{printf("var2 = |%c| is not a printing character\n", var1);}
-	if (ft_isprint(var2))
-		{printf("var2 = |%c| is a printing  character\n", var2);}
-	else
-		{printf("var2 = |%c| is not a printing  character\n", var2);}
-	if (ft_isprint(var3))
-		{printf("var3 = |%c| is a printing character \n", var3);}
-	else
-		{printf("var3 = |%c| is not a printing  character\n", var3);}
-	if (ft_isprint(var4))
-		{printf("var4 = |%c| is a printing character\n", var4);}
-	else
-		{printf("var4 = |%c| is not a printing  character\n", var4);}
+	ft_itoa(16);
+	printf("ft_atoi: %s \n", buf);
 	return (0);
 }

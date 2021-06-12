@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:15:56 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/05 10:41:05 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/08 16:51:50 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,21 @@ int	ft_atoi(const char *str)
 	int	number;
 
 	i = 0;
-	negativ = 0;
-	number = 1;
+	negativ = 1;
+	number = 0;
 	while ((str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r') && str[i] != 03)
+			|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r'))
 		i++;
-	while ((str[i] == 43 || str[i] == 45) && (str[i] != 03 || str[i] != '\0'))
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			negativ++;
+			negativ *= -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57 && (str[i] != 03 || str[i] != '\0'))
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		number *= 10;
-		number += str[i] - '0';
+		number = str[i] + (number * 10) - 48;
 		i++;
 	}
-	if (negativ % 2 != 0)
-		number *= -1;
-	return (number);
+	return (number * negativ);
 }

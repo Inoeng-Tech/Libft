@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 13:47:53 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/05/29 14:23:10 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/06 17:26:37 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;
 
-	last = '\0';
-	while (*s != '\0')
+	last = 0;
+	while (1)
 	{
-		if (*s == (char)c)
+		if (*s == c)
 			last = (char *)s;
-		s++;
+		if (!*s++)
+			break ;
 	}
 	return (last);
 }

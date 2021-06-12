@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:52:54 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/05/30 17:07:53 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/08 17:12:37 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int	ft_tolower(int c)
 {
-	if (c > 64 && c < 91)
-		return (c + 32);
+	int	i;
+
+	i = 0;
+	if (c >= 65 && c <= 90)
+	{
+		c = c + 32;
+		i++;
+	}
 	return (c);
 }
-	

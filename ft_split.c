@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 15:54:42 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/06 18:34:09 by afridasufi       ###   ########.fr       */
+/*   Created: 2021/06/06 15:12:15 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/09 23:26:20 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	**ft_split(char const *s, char c)
 {
+	char	**a;
+	char	*end;
 	size_t	i;
-	char	*d;
-	char	*s;
 
-	d = dst;
-	s = (char *)src;
-	if (d == 0 && s == 0)
-		return (0);
+	a = (char **)malloc((ft_strlen(s--) + 1) * sizeof(char *));
+	if (!a)
+		return (NULL);
 	i = 0;
-	while (i < n)
+	while (*++s)
 	{
-		d[i] = s[i];
-		i++;
+		end = ft_strchr(s, (int) c);
+		if (!end)
+		{
+			a[i++] = ft_substr(s, 0, ft_strlen(s));
+			break ;
+		}
+		if (c != *s)
+		{
+			a[i++] = ft_substr(s, 0, (ft_strlen(s) - ft_strlen(end)));
+			s = end;
+		}
 	}
-	return (dst);
+	a[i] = NULL;
+	return (a);
 }
