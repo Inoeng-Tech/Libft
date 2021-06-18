@@ -6,16 +6,14 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:34:12 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/12 23:29:05 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/17 01:16:08 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
 
 typedef struct s_list
 {

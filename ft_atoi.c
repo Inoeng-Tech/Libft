@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:15:56 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/08 16:51:50 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/16 19:37:27 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	negativ;
-	int	number;
+	int			i;
+	int			negativ;
+	long int	number;
 
 	i = 0;
 	negativ = 1;

@@ -6,7 +6,7 @@
 #    By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/15 09:48:15 by afridasufi        #+#    #+#              #
-#    Updated: 2021/06/12 23:30:25 by afridasufi       ###   ########.fr        #
+#    Updated: 2021/06/16 18:38:14 by afridasufi       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,25 +49,30 @@ FILES		= ft_memset.c \
 							
 OBJ					= $(FILES:%.c=%.o)
 
+CC					= gcc
+RM					= rm -f
+
 all: $(NAME)
 
 #This won't run if tge .o files don't exist or are not modified
 $(NAME): $(OBJ)
-		ar rc $(NAME)	$(OBJ)
+		ar rcs $(NAME)	$(OBJ)
 
 #this won't run if the source files don't exist or are not modified
 $(OBJ): $(FILES)
 		gcc -c $(CFLAGS) $(FILES)
 
 clean:
-		rm -f $(OBJ)
+		$(RM) $(OBJ)
 #comment this line if you don't want to remove the source files from the root
 
 fclean: clean
-		rm -f $(NAME)
+		$(RM) $(NAME)
 
 re: fclean all
 
+so: clean
+	gcc -shared -o libft.so $(FILES)
+
 .PHONY: clean fclean all re
 #use .PHONY to make sure that GNU make will still run even if files called
-#clean / fclean / all and re already exist in the directory 

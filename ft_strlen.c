@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 12:39:27 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/05 18:26:54 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/13 02:17:23 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i] != '\0')
+	{	
 		i++;
+	}
 	return (i);
 }

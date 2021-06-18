@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 13:21:20 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/06 18:21:12 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/16 19:43:48 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*ptr;
-	void			*a;
-	size_t			i;
+	void	*r;
 
-	a = malloc(count * size);
-	if (!a)
+	r = malloc(count * size);
+	if (!r)
 		return (NULL);
-	ptr = a;
-	i = 0;
-	while (i < count * size)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return (a);
+	ft_bzero(r, count * size);
+	return (r);
 }

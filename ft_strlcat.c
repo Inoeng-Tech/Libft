@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:31:18 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/06 23:08:10 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/16 19:51:27 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,29 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	dst_len;
-	size_t	src_len;
+	char		*d;
+	const char	*s;
+	size_t		len;
+	size_t		dst_len;
 
-	if (!dst)
-		return (dstsize);
-	i = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dstsize < dst_len)
-		return (src_len + dstsize);
-	while (src[i] && dst_len + 1 + i < dstsize)
+	d = dst;
+	s = src;
+	len = dstsize;
+	while (len-- && *d)
+		d++;
+	dst_len = d - dst;
+	len = dstsize - dst_len;
+	if (len == 0)
+		return (dst_len + ft_strlen(s));
+	while (*s)
 	{
-		dst[dst_len + i] = src[i];
-		i++;
+		if (len != 1)
+		{
+			*d++ = *s;
+			len--;
+		}
+		s++;
 	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	*d = 0;
+	return (dst_len + (s - src));
 }

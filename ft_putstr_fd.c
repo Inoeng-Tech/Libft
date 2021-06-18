@@ -6,7 +6,7 @@
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:05:42 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/12 19:13:22 by afridasufi       ###   ########.fr       */
+/*   Updated: 2021/06/13 04:24:00 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	size;
-
-	size = 0;
 	while (*s)
 	{
 		write(fd, &(*s), 1);

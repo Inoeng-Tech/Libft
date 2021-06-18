@@ -5,36 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afridasufi <afridasufi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 15:12:15 by afridasufi        #+#    #+#             */
-/*   Updated: 2021/06/09 23:26:20 by afridasufi       ###   ########.fr       */
+/*   Created: 2021/06/17 01:06:32 by afridasufi        #+#    #+#             */
+/*   Updated: 2021/06/17 01:06:37 by afridasufi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	count(const char *str, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (*str)
+		if (*str != c && ++i)
+			while (*str && *str++ != c)
+				continue ;
+	else
+		str++;
+	return (i);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**a;
-	char	*end;
 	size_t	i;
 
-	a = (char **)malloc((ft_strlen(s--) + 1) * sizeof(char *));
+	a = (char **)malloc((count(s, c) + 1) * sizeof(char *));
 	if (!a)
-		return (NULL);
+		return (0);
 	i = 0;
-	while (*++s)
+	while (*s)
 	{
-		end = ft_strchr(s, (int) c);
-		if (!end)
+		if (*s != c)
 		{
-			a[i++] = ft_substr(s, 0, ft_strlen(s));
-			break ;
+			if (!ft_strchr(s, (int) c))
+			{
+				a[i++] = ft_substr(s, 0, ft_strlen(s));
+				break ;
+			}	
+			a[i++] = ft_substr(s, 0, ft_strchr(s, (int) c) - s);
+			s = ft_strchr(s, (int) c);
 		}
-		if (c != *s)
-		{
-			a[i++] = ft_substr(s, 0, (ft_strlen(s) - ft_strlen(end)));
-			s = end;
-		}
+		else
+			s++;
 	}
 	a[i] = NULL;
 	return (a);
